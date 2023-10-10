@@ -1,0 +1,81 @@
+model_name: mobilenetv3_1d
+num_classes: 6
+
+kernel_size_list: [3, 5, 7]
+expand_ratio_list: [0.5, 1, 3, 4, 6]
+depth_list: [1, 2, 3, 4]
+width_mult: 0.25
+input_seq_len: 23
+patch_size: 1
+feature_cross: false
+arch: "Patchemb"
+
+train_data_file: "dataset-new.pkl"
+test_data_file: "dataset-new.pkl"
+act_func_list: ["h_swish","h_swish","relu6"]
+
+
+
+
+Task: "depth:4-34"
+NSGA: True
+checkpoint_path: "./nsga_output/NSGA_D4K357E346W8_1x/checkpoint/model_best.pth.tar"
+work_path: "./nsga_output/NSGA_D34K357E346W8_1x"
+load_train_settings: "./nsga_output/NSGA_D4K357E346W8_1x/record/14-train.pkl"
+load_val_record: "./nsga_output/NSGA_D4K357E346W8_1x/record/14-val.pkl"
+finetune: True
+max_no_improved_epochs: 10
+distilation:
+  kd_ratio: 1.0
+  teacher_model_path: "./nsga_output/OFA_D4K7E6W64_10x/checkpoint/model_best.pth.tar"
+  kd_type: "ce"
+max_no_improved_epochs: 10
+runtime:
+  n_epochs: 64
+  batch_size: 2048
+  num_workers: 3
+
+  opt_type: "sgd"
+  init_lr: 0.0005
+  momentum: 0.99
+  no_nesterov: False
+  lr_schedule_type: "cosine"
+  weight_decay: 3e-5
+  no_decay_keys: "bn#bias"
+  warmup_epochs: 5
+  warmup_lr: 0.000001
+  
+  model_init: "he_fin"
+  label_smoothing: 0.1
+  validation_frequency: 1
+  dynamic_batch_size: 2
+
+num_sample_train_per_epoch: 1000
+num_sample_val_per_epoch: 32
+object_type: "params"
+input_shape: [23]
+deleted_keys: []
+
+search_space:
+  active_stem0_depth: [3, 4]
+  active_stem1_depth: [3, 4]
+  active_embed_dim: [8]
+  active_kernel_size: [3, 5, 7]
+  active_expand_ratio: [3, 4, 6]
+
+
+xu: [3, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0]
+xl: [2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
+
+
+
+
+
+
+
+
+
+
+
