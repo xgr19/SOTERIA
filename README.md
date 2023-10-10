@@ -1,8 +1,9 @@
 # SOTERIA  
 Efficient Attack Detection with Multi-Latency Neural Models on Heterogeneous Network Devices (ICNP 2023)
 ## Overview
-<img align="right" width="600" src="overview.png">
-SOTERIA, an automated multi-latency NN generation and scheduling system for fast and accurate detection against fluctuating traffic rates across heterogeneous hardware.
+<img align="center" width="600" src="overview.png">
+
+SOTERIA: an automated multi-latency NN generation and scheduling system for fast and accurate detection against fluctuating traffic rates across heterogeneous hardware.
 
 ## Environment Setup
 To get started, follow these steps:
