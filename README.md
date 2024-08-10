@@ -1,6 +1,9 @@
 # SOTERIA  
 Efficient Attack Detection with Multi-Latency Neural Models on Heterogeneous Network Devices (ICNP 2023)
 <img align="center" width="600" src="overview.png">
+
+Note: The unit of detection time in Fig 9 is **milliseconds**, and the term "microseconds" in the relevant section is wrong.
+
 ## Environment Setup
 To get started, follow these steps:
 1. Install the required dependencies:  
